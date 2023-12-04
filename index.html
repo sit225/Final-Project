@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paws and Ponder</title>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 2em;
+            padding: 20px; /* Add padding for spacing inside each section */
+        }
+
+
+        .section {
+            background-color: #F8EFEB;
+        }
+
+        .section .third {
+        width: 33%;
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .section .third .inner {
+        width: 100%;
+    }
+
+    .section .two-third {
+    width: 66%;
+    float: right;
+    }
+
+
+        img {
+            max-width: 100%;
+            height: auto;
+            max-height: 85vh; /* Set a maximum height if needed */
+        }
+    </style>
+</head>
+
+<body>
+    <section id="section1" class = "section">
+        <img src="images/1.svg" alt="Section 1 Image">
+    </section>
+    <section id="section2" class = "section">
+        <img src="images/2.svg" alt="Section 2 Image">
+    </section>
+    <div id="section3" class="section">
+
+
+        <div class="third">
+    
+            <div class="inner">
+    
+                <!-- SVG Graphic for Bone -->
+        <svg id="svg2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93.66 41.67">
+            <defs>
+                 <linearGradient id="progress" x1="0" y1="0" x2="1" y2="0">
+                    <stop id="stop1" offset="0" stop-color="darkcyan"/>
+                    <stop id="stop2" offset="0" stop-color="#d6d6d6"/>
+                </linearGradient>
+            </defs>
+            <path fill="url(#progress)" id="path4" d="m80.83,41.67c-5.6,0-10.48-3.63-12.18-8.84H25.01c-1.7,5.21-6.58,8.84-12.18,8.84-7.08,0-12.83-5.76-12.83-12.84,0-2.91,1.02-5.74,2.84-8-1.82-2.27-2.84-5.09-2.84-8C0,5.76,5.76,0,12.83,0c5.6,0,10.48,3.63,12.18,8.84h43.64c1.7-5.21,6.58-8.84,12.18-8.84,7.08,0,12.83,5.76,12.83,12.84,0,2.91-1.02,5.73-2.84,8,1.83,2.26,2.84,5.09,2.84,8,0,7.08-5.75,12.84-12.83,12.84Z"/>
+        </svg>
+    
+        <!-- Slider Element -->
+        <input id="slider" list="steplist" type="range" min="0" max="6" step="1" oninput="sliderChange(this.value)">
+        <datalist id="steplist">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+        </datalist>
+        
+        <!-- Output Elements -->
+        <output id="output"></output>
+        <p id="amount"></p>
+    
+        <!-- JavaScript for Slider Functionality -->
+        <script type="text/javascript">
+            function setProgress(amt) {
+                amt = (amt < 0) ? 0 : (amt > 1) ? 1 : amt;
+                document.getElementById("stop1").setAttribute("offset", amt);
+                document.getElementById("stop2").setAttribute("offset", amt);
+            }
+    
+            const values = [
+                [2018, 20, "20,000"],
+                [2019, 40, "40,000"],
+                [2020, 50, "50,000"],
+                [2021, 60, "60,000"],
+                [2022, 85, "85,000"],
+                [2023, 80, "80,000"],
+                [2024, 88, "88,000"],
+            ];
+    
+            function sliderChange(val) {
+                document.getElementById('output').innerHTML = values[val][0];
+                document.getElementById('amount').innerHTML = values[val][2]+' adoptions';
+                setProgress(values[val][1]/100)
+            }
+    
+            // Initialize slider on page load
+            document.getElementById('slider').value = 0;
+            sliderChange(0)
+        </script>
+    
+        <div class="two-third">
+            <img src="images/3.svg" alt="Section 3 Image">
+        </div>
+    
+    </div>
+    <section id="section4" class = "section">
+        <img src="images/4.svg" alt="Section 4 Image">
+    </section>
+    <section id="section5" class = "section">
+        <img src="images/shelterintakes.png" alt="Section 5 Image">
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Smooth scrolling
+            const sections = document.querySelectorAll('section');
+
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.scrollY;
+
+                sections.forEach((section, index) => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        // Add a class or do something when the section is in view
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
