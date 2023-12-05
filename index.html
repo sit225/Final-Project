@@ -5,130 +5,332 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paws and Ponder</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300&display=swap">
     <link rel="stylesheet" href="style.css">
+=======
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://unpkg.com/chota@latest">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+>>>>>>> 77ea6c0 (final project)
 </head>
 
 <body>
-    <header onclick="scrollToTop()">
-        <h1>Paws and Ponder</h1>
-        <div class="paw-print">🐾</div>
-    </header>
-    <section id="section1" class="section">
-        <img src="images/1.svg" alt="Section 1 Image">
-        <img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToNextSection()">
-    </section>
-    <section id="section2" class="section">
-        <img src="images/2.png" alt="Section 2 Image">
-        <img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToNextSection()">
-    </section>
-    <section id="section3" class="section">
-        <div class="graph-title">PA Live Intakes</div>
-        <img style ="align-self: flex-start" src="images/3.svg" alt="Section 3 Image">
-        <div class="graph"> <!-- Placeholder for the interactable graph -->
-            <!-- Add your interactable graph content here -->
+
+    <main>
+
+    <div class="container">
+        
+        <div class="row" id="section1">
+            <div class="col-12"><img src="images/1.svg" alt="Section 1 Image"></div>
         </div>
-        <img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToNextSection()">
-    </section>
-    <section id="section4" class="section">
-        <div class="graph-title">PA Non-Live Outcomes</div>
-        <div class="graph" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%);">
-            <!-- Embed the bone graph SVG and related HTML/JS here -->
-            <?xml version="1.0" encoding="UTF-8"?>
-            <svg id="svg2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93.66 41.67">
-                <defs>
-                    <linearGradient id="progress" x1="0" y1="0" x2="1" y2="0">
-                        <stop id="stop1" offset="0" stop-color="#1C3150"/>
-                        <stop id="stop2" offset="0" stop-color="#F8EFEB"/>
-                    </linearGradient>
-                </defs>
-                <path fill="url(#progress)" id="path4" d="m80.83,41.67c-5.6,0-10.48-3.63-12.18-8.84H25.01c-1.7,5.21-6.58,8.84-12.18,8.84-7.08,0-12.83-5.76-12.83-12.84,0-2.91,1.02-5.74,2.84-8-1.82-2.27-2.84-5.09-2.84-8C0,5.76,5.76,0,12.83,0c5.6,0,10.48,3.63,12.18,8.84h43.64c1.7-5.21,6.58-8.84,12.18-8.84,7.08,0,12.83,5.76,12.83,12.84,0,2.91-1.02,5.73-2.84,8,1.83,2.26,2.84,5.09,2.84,8,0,7.08-5.75,12.84-12.83,12.84Z" stroke="#1C3150" stroke-width="0.15" />
-            </svg>
-
-            <input id="slider" list="steplist" type="range" min="0" max="5" step="1" oninput="sliderChange(this.value)">
-            <datalist id="steplist">
-                <option>2018</option>
-                <option>2019</option>
-                <option>2020</option>
-                <option>2021</option>
-                <option>2022</option>
-                <option>2023</option>
-            </datalist>
-            <output id="output"></output>
-            <p id="amount"></p>
-
-            <script type="text/javascript">
-                function setProgress(amt) {
-                  amt = (amt < 0) ? 0 : (amt > 1) ? 1 : amt;
-                  document.getElementById("stop1").setAttribute("offset", amt);
-                  document.getElementById("stop2").setAttribute("offset", amt);
-                }
-
-                const values = [
-                   [2018, 79.3, "3,172"],
-                   [2019, 79, "3,160"],
-                   [2020, 53, "2,121"],
-                   [2021, 64, "2,562"],
-                   [2022, 57.6, "2,303"],
-                   [2023, 54.7, "2,188"],
-                ];
-
-                function sliderChange(val) {
-                    document.getElementById('output').innerHTML = values[val][0];
-                    document.getElementById('amount').innerHTML = values[val][2]+' PA non-live outcomes';
-                    setProgress(values[val][1]/100)
-                }
-                document.getElementById('slider').value = 0;
-
-                sliderChange(0)
-            </script>
+        
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-1 center-text"><img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToSection('section3')"></div>
+            <div class="col"></div>
         </div>
-        <img style ="align-self: flex-end" src="images/4.svg" alt="Section 4 Image">
-        <img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToNextSection()">
-    </section>
-    <section id="section5" class="section">
-        <img src="images/5.svg" alt="Section 5 Image">
-        <img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToNextSection()">
-    </section>
-    <section id="section6" class="section">
-        <img src="images/map0.png" alt="Section 6 Image">
-    </section>
-   <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Smooth scrolling
-            const sections = document.querySelectorAll('section');
+        
+        <div class="row" id="section3">
+            <div class="col-12"><img src="images/2.png" alt="Adoption Graph"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-1 center-text"><img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToSection('section4')"></div>
+            <div class="col"></div>
+        </div>
+        
+        <div class="row" id="section4">
+            <div class="col-8"><img src="images/3.svg" alt="Section 4 Image"></div>
+            <div class="col-4 is-vertical-align center-text">
+                <!-- -->
+                <div class="graph">
+                    <h2>PA Net Intake</h2>
+                    <!-- Embed the bone graph SVG and related HTML/JS here -->
+                    
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <!-- Generator: Adobe Illustrator 28.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                    <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 1068 1044" style="enable-background:new 0 0 1068 1044;" xml:space="preserve">
+                    <style type="text/css">
+                        .st0{fill:url(#pawprogress); stroke: #1b3150;}
+                    </style>
+                    <linearGradient id="pawprogress" x1="0" y1="0" x2="1" y2="0">
+                                <stop id="pawstop1" offset="0" stop-color="#1C3150"/>
+                                <stop id="pawstop2" offset="0" stop-color="#F8EFEB"/>
+                            </linearGradient>
+                    <path class="st0" d="M969.2,353.8c-57.8,0-112.9,83.5-124.8,191.3c-6,54.3-0.2,106.6,16.3,147.3c16.4,40.4,41.4,64.5,70.4,67.7
+                        c60.1,6.6,119-79.1,131.3-191l1,0.1l-1-0.1c6-54.3,0.2-106.6-16.3-147.3c-16.4-40.4-41.4-64.5-70.4-67.7
+                        C973.6,354,971.4,353.8,969.2,353.8z M393.4,595.9c-37.2,0-72.2-31-98.4-87.4c-26.1-56.1-40.5-130.7-40.5-210
+                        c0-79.3,14.4-153.9,40.5-210c26.2-56.3,61.2-87.4,98.4-87.4c37.2,0,72.2,31,98.4,87.4c26.1,56.1,40.5,130.7,40.5,210
+                        s-14.4,153.9-40.5,210C465.6,564.8,430.7,595.9,393.4,595.9z M704.6,602.1c-37.2,0-72.2-31-98.4-87.4
+                        c-26.1-56.1-40.5-130.7-40.5-210c0-79.3,14.4-153.9,40.5-210c26.2-56.3,61.2-87.4,98.4-87.4s72.2,31,98.4,87.4
+                        c26.1,56.1,40.5,130.7,40.5,210c0,79.3-14.4,153.9-40.5,210C776.8,571.1,741.8,602.1,704.6,602.1z M135.4,673.9
+                        c-28.3,0-56.8-18.2-81-52.1c-26.2-36.7-44.2-87.5-50.6-143S3.2,369.8,20.2,328c17.1-42,43.5-67.1,74.3-70.6
+                        c30.8-3.6,62.3,14.8,88.6,51.7c26.2,36.7,44.2,87.5,50.6,143s0.6,109-16.4,150.8c-17.1,42-43.5,67.1-74.3,70.6l0,0
+                        C140.4,673.8,137.9,673.9,135.4,673.9z M782.4,1042.3c-53.3,0-112.1-25.9-157.4-74.5c-0.2-0.2-0.4-0.4-0.5-0.6
+                        c-41.7,6-85.6,8.2-130.4,6.6c-43.8-1.6-86.6-6.8-127.3-15.5c0,0-0.1,0.1-0.1,0.1c-0.2,0.2-0.3,0.3-0.5,0.5
+                        c-45,41.8-100,63.3-150.1,63.3c-39.7,0-76.2-13.5-102-41.3c-28.3-30.4-39.7-73.2-32-120.4c7.6-47.1,33.3-93,72.3-129.3
+                        c17.6-16.4,37.1-30,58.1-40.5c33.8-19.7,77.9-35.5,127.5-45.7c52-10.6,108-14.9,166.5-12.8c106.2,3.9,205.9,29.3,273.5,69.8
+                        c26.2,12.7,50,30.2,70.9,52.2v0l1.7,1.9c36.3,39,58.5,86.7,62.7,134.2c4.2,47.6-10.3,89.5-40.7,117.8
+                        C850,1031.2,817.4,1042.3,782.4,1042.3z"/>
+                    </svg>
 
-            window.addEventListener('scroll', () => {
-                const scrollPosition = window.scrollY;
+                    <div class="row">
+                        <div class="col-2 is-vertical-align">
+                            <output id="pawoutput"></output>
+                        </div>
+                        <div class="col-6 is-vertical-align">
+                            <input id="pawslider" list="pawsteplist" type="range" min="0" max="5" step="1" oninput="pawsliderChange(this.value)">
+                            <datalist id="pawsteplist">
+                                <option>2018</option>
+                                <option>2019</option>
+                                <option>2020</option>
+                                <option>2021</option>
+                                <option>2022</option>
+                                <option>2023</option>
+                            </datalist>
+                        </div>
+                        <div class="col-4 is-vertical-align" id="pawamount">
+                        </div>
+                    </div>
 
-                sections.forEach((section, index) => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
+                    <script type="text/javascript">
+                        function pawsetProgress(amt) {
+                          amt = (amt < 0) ? 0 : (amt > 1) ? 1 : amt;
+                          document.getElementById("pawstop1").setAttribute("offset", amt);
+                          document.getElementById("pawstop2").setAttribute("offset", amt);
+                        }
 
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        // Add a class or do something when the section is in view
-                        section.classList.add('active');
-                    } else {
-                        section.classList.remove('active');
-                    }
-                });
-            });
-        });
-        function scrollToNextSection() {
-            const activeSection = document.querySelector('.section.active');
-            const nextSection = activeSection.nextElementSibling;
+                        const pawvalues = [
+                           [2018, 79.3, "3,172"],
+                           [2019, 79, "3,160"],
+                           [2020, 53, "2,121"],
+                           [2021, 64, "2,562"],
+                           [2022, 57.6, "2,303"],
+                           [2023, 54.7, "2,188"],
+                        ];
 
-            if (nextSection) {
-                nextSection.scrollIntoView({ behavior: 'smooth' });
+                        function pawsliderChange(val) {
+                            document.getElementById('pawoutput').innerHTML = pawvalues[val][0];
+                            document.getElementById('pawamount').innerHTML = pawvalues[val][2]+' dogs';
+                            pawsetProgress(pawvalues[val][1]/100)
+                        }
+                        document.getElementById('pawslider').value = 0;
+
+                        pawsliderChange(0)
+                    </script>
+                </div>
+                <!-- -->
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-1 center-text"><img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToSection('section5')"></div>
+            <div class="col"></div>
+        </div>
+        
+        <div class="row" id="section5">
+            <div class="col-4 is-vertical-align center-text">
+                <!-- -->
+                <div class="graph">
+                    <h2>PA Non-Live Outcomes 2018-2023</h2>
+                    <!-- Embed the bone graph SVG and related HTML/JS here -->
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg id="svg2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93.66 41.67">
+                        <defs>
+                            <linearGradient id="progress" x1="0" y1="0" x2="1" y2="0">
+                                <stop id="stop1" offset="0" stop-color="#1C3150"/>
+                                <stop id="stop2" offset="0" stop-color="#F8EFEB"/>
+                            </linearGradient>
+                        </defs>
+                        <path fill="url(#progress)" id="path4" d="m80.83,41.67c-5.6,0-10.48-3.63-12.18-8.84H25.01c-1.7,5.21-6.58,8.84-12.18,8.84-7.08,0-12.83-5.76-12.83-12.84,0-2.91,1.02-5.74,2.84-8-1.82-2.27-2.84-5.09-2.84-8C0,5.76,5.76,0,12.83,0c5.6,0,10.48,3.63,12.18,8.84h43.64c1.7-5.21,6.58-8.84,12.18-8.84,7.08,0,12.83,5.76,12.83,12.84,0,2.91-1.02,5.73-2.84,8,1.83,2.26,2.84,5.09,2.84,8,0,7.08-5.75,12.84-12.83,12.84Z" stroke="#1C3150" stroke-width="0.15" />
+                    </svg>
+
+                    <div class="row">
+                        <div class="col-2 is-vertical-align">
+                            <output id="output"></output>
+                        </div>
+                        <div class="col-6 is-vertical-align">
+                            <input id="slider" list="steplist" type="range" min="0" max="5" step="1" oninput="sliderChange(this.value)">
+                            <datalist id="steplist">
+                                <option>2018</option>
+                                <option>2019</option>
+                                <option>2020</option>
+                                <option>2021</option>
+                                <option>2022</option>
+                                <option>2023</option>
+                            </datalist>
+                        </div>
+                        <div class="col-4 is-vertical-align" id="amount">
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+                        function setProgress(amt) {
+                          amt = (amt < 0) ? 0 : (amt > 1) ? 1 : amt;
+                          document.getElementById("stop1").setAttribute("offset", amt);
+                          document.getElementById("stop2").setAttribute("offset", amt);
+                        }
+
+                        const values = [
+                           [2018, 79.3, "3,172"],
+                           [2019, 79, "3,160"],
+                           [2020, 53, "2,121"],
+                           [2021, 64, "2,562"],
+                           [2022, 57.6, "2,303"],
+                           [2023, 54.7, "2,188"],
+                        ];
+
+                        function sliderChange(val) {
+                            document.getElementById('output').innerHTML = values[val][0];
+                            document.getElementById('amount').innerHTML = values[val][2]+' dogs';
+                            setProgress(values[val][1]/100)
+                        }
+                        document.getElementById('slider').value = 0;
+
+                        sliderChange(0)
+                    </script>
+                </div>
+                <!-- -->
+            </div>
+            <div class="col-8"><img src="images/4.svg" alt="Section 5 Image"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-1 center-text"><img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToSection('section6')"></div>
+            <div class="col"></div>
+        </div>
+
+        <div class="row" id="section6">
+            <div id="scrolly">
+                <figure>
+                    <div id="map-0" class="map-overlay"><img src="images/map-1.png" alt="Map Layer 1"></div>
+                    <div id="map-1" class="map-overlay"><img src="images/map-2.png" alt="Map Layer 2"></div>
+                    <img src="images/map-0.png" alt="Map Base Image">
+                </figure>
+                <article>
+                <div class="step">
+                    <div class="inner">
+                        <h3>2023 Pennsylvania Total Shelter Intakes</h3>
+                        <p>This map is a call to action. By choosing adoption over buying from breeders or pet stores, individuals can make a significant impact on the welfare of homeless animals. Opting to adopt directly contributes to addressing the issue of pet overpopulation, and each adoption is a step toeard building a more humane and responsible society for our beloved four-legged friends! Join us in making a simple yet impactful choice: choose to adopt and make a difference in the lives of shelter animals across PA.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="inner">
+                        <h3>Pennsylvania Puppy Mill Map</h3>
+                        <p>This map is a call to action. By choosing adoption over buying from breeders or pet stores, individuals can make a significant impact on the welfare of homeless animals. Opting to adopt directly contributes to addressing the issue of pet overpopulation, and each adoption is a step toeard building a more humane and responsible society for our beloved four-legged friends! Join us in making a simple yet impactful choice: choose to adopt and make a difference in the lives of shelter animals across PA.</p>
+                    </div>
+                </div>
+            </article>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-1 center-text"><img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToSection('section7')"></div>
+            <div class="col"></div>
+        </div>
+
+        <div class="row" id="section7">
+            <div class="col-12"><img src="images/5.svg" alt="Section 7 Image"></div>
+        </div>
+
+    </div>
+
+
+
+<!-- scrolly -->
+<script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script>
+<script>
+        // using d3 for convenience
+        var main = d3.select("main");
+        var scrolly = main.select("#scrolly");
+        var figure = scrolly.select("figure");
+        var article = scrolly.select("article");
+        var step = article.selectAll(".step");
+
+        // initialize the scrollama
+        var scroller = scrollama();
+
+        // generic window resize listener event
+        function handleResize() {
+            // 1. update height of step elements
+            //var stepH = Math.floor(window.innerHeight * 0.75);
+            //step.style("height", stepH + "px");
+
+            var figureHeight = window.innerHeight / 2;
+            //var figureHeight = figure.offsetHeight;
+            var figureMarginTop = (window.innerHeight - figureHeight) / 2;
+
+            figure
+                //.style("height", figureHeight + "px")
+                .style("top", figureMarginTop + "px");
+
+            // 3. tell scrollama to update new element dimensions
+            scroller.resize();
+        }
+
+        // scrollama event handlers
+        function handleStepEnter(response) {
+            console.log(response);
+            // response = { element, direction, index }
+
+            var element = document.getElementById("map-"+response.index);
+            element.classList.add("visible");
+
+            // add color to current step only
+            //step.classed("is-active", function (d, i) {
+            //    return i === response.index;
+            //});
+
+            // update graphic based on step
+            //figure.select("p").text(response.index + 1);
+        }
+
+        function handleStepExit(response) {
+            console.log(response.direction);
+
+            var element = document.getElementById("map-"+response.index);
+
+            if(response.direction == 'up') {
+                element.classList.remove("visible");
             }
         }
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+
+
+        function init() {
+
+            // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+            handleResize();
+
+            // 2. setup the scroller passing options
+            //      this will also initialize trigger observations
+            // 3. bind scrollama event handlers (this can be chained like below)
+            scroller
+                .setup({
+                    step: "#scrolly article .step",
+                    offset: .50,
+                    debug: false
+                })
+                .onStepEnter(handleStepEnter)
+                .onStepExit(handleStepExit);
         }
+
+        // kick things off
+        init();
     </script>
+
+    </main>
+
 </body>
+
 
 </html>
