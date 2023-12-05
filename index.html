@@ -40,7 +40,9 @@
         h1 {
             margin: 0; /* Remove default margin for better centering */
         }
-        
+
+
+
         section {
             height: 100vh;
             display: flex;
@@ -57,10 +59,15 @@
             background-color: #F8EFEB;
         }
 
+        .section4text{
+            align-items: flex-start;
+        }
+
         img {
             max-width: 100%;
             height: auto;
             max-height: 85vh; /* Set a maximum height if needed */
+            margin-top: 0;
         }
 
         .nav-button {
@@ -73,21 +80,31 @@
             height: 40px; /* Set the desired height */
         }
 
-        #section3 {
-            align-items: flex-start; /* Align items to the start (left) */
-        }
-
-        #section4 {
-            align-items: flex-end; /* Align items to the end (right) */
-        }
-
         /* Add styles for the interactable graph */
         .graph {
+            padding-left: 1em;
             width: 80%; /* Adjust the width of the graph */
             max-width: 600px; /* Set a maximum width if needed */
             margin-top: 20px; /* Add margin to create space for the graph */
-            background-color: #ffffff; /* Set the background color for the graph */
-            /* Add any other styles for the graph */
+            font-family: 'Kumbh Sans', sans-serif; /* Change the font family */
+            color: #1C3150; /* Change the text color */
+        }
+
+                /* Add styles for the graph title */
+        .graph-title {
+            margin-top: 1.5em;
+            margin-bottom: 0em;
+            font-family: 'Kumbh Sans', sans-serif;
+            font-size: 1.5em; /* Adjust the font size for the title */
+            color: #1C3150; /* Set the text color for the title */
+            text-align: left; /* Center the text */
+        }
+
+
+        /* Add more styles as needed for specific elements within the graph */
+        #output, #amount {
+            font-size: 15px; /* Adjust the font size for the output elements */
+            font-weight: bold;
         }
 
     </style>
@@ -107,17 +124,67 @@
         <img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToNextSection()">
     </section>
     <section id="section3" class="section">
-        <img src="images/3.svg" alt="Section 3 Image">
+        <div class="graph-title">PA Live Intakes</div>
+        <img style ="align-self: flex-start" src="images/3.svg" alt="Section 3 Image">
         <div class="graph"> <!-- Placeholder for the interactable graph -->
             <!-- Add your interactable graph content here -->
         </div>
         <img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToNextSection()">
     </section>
     <section id="section4" class="section">
-        <div class="graph"> <!-- Placeholder for the interactable graph -->
-            <!-- Add your interactable graph content here -->
+        <div class="graph-title">PA Non-Live Outcomes</div>
+        <div class="graph" style="position: absolute; top: 50%; left: 5%; transform: translateY(-50%);">
+            <!-- Embed the bone graph SVG and related HTML/JS here -->
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg id="svg2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93.66 41.67">
+                <defs>
+                    <linearGradient id="progress" x1="0" y1="0" x2="1" y2="0">
+                        <stop id="stop1" offset="0" stop-color="#4D6489"/>
+                        <stop id="stop2" offset="0" stop-color="#DBC6C0"/>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#progress)" id="path4" d="m80.83,41.67c-5.6,0-10.48-3.63-12.18-8.84H25.01c-1.7,5.21-6.58,8.84-12.18,8.84-7.08,0-12.83-5.76-12.83-12.84,0-2.91,1.02-5.74,2.84-8-1.82-2.27-2.84-5.09-2.84-8C0,5.76,5.76,0,12.83,0c5.6,0,10.48,3.63,12.18,8.84h43.64c1.7-5.21,6.58-8.84,12.18-8.84,7.08,0,12.83,5.76,12.83,12.84,0,2.91-1.02,5.73-2.84,8,1.83,2.26,2.84,5.09,2.84,8,0,7.08-5.75,12.84-12.83,12.84Z"/>
+            </svg>
+
+            <input id="slider" list="steplist" type="range" min="0" max="6" step="1" oninput="sliderChange(this.value)">
+            <datalist id="steplist">
+                <option>2018</option>
+                <option>2019</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+            </datalist>
+            <output id="output"></output>
+            <p id="amount"></p>
+
+            <script type="text/javascript">
+                function setProgress(amt) {
+                  amt = (amt < 0) ? 0 : (amt > 1) ? 1 : amt;
+                  document.getElementById("stop1").setAttribute("offset", amt);
+                  document.getElementById("stop2").setAttribute("offset", amt);
+                }
+
+                const values = [
+                   [2018, 79.3, "3,172"],
+                   [2019, 79, "3,160"],
+                   [2020, 53, "2,121"],
+                   [2021, 64, "2,562"],
+                   [2022, 57.6, "2,303"],
+                   [2023, 54.7, "2,188"],
+                ];
+
+                function sliderChange(val) {
+                    document.getElementById('output').innerHTML = values[val][0];
+                    document.getElementById('amount').innerHTML = values[val][2]+' PA non-live outcomes';
+                    setProgress(values[val][1]/100)
+                }
+                document.getElementById('slider').value = 0;
+
+                sliderChange(0)
+            </script>
         </div>
-        <img src="images/4.svg" alt="Section 4 Image">
+        <img style ="align-self: flex-end" src="images/4.svg" alt="Section 4 Image">
         <img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToNextSection()">
     </section>
     <section id="section5" class="section">
