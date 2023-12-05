@@ -65,11 +65,31 @@
 
         .nav-button {
             position: absolute;
-            bottom: 60px; /* Adjust the distance from the bottom */
+            bottom: 70px; /* Adjust the distance from the bottom */
+            left: 50%; /* Center the button horizontally */
+            transform: translateX(-50%); /* Center the button horizontally */
             cursor: pointer;
             width: 40px; /* Set the desired width */
             height: 40px; /* Set the desired height */
         }
+
+        #section3 {
+            align-items: flex-start; /* Align items to the start (left) */
+        }
+
+        #section4 {
+            align-items: flex-end; /* Align items to the end (right) */
+        }
+
+        /* Add styles for the interactable graph */
+        .graph {
+            width: 80%; /* Adjust the width of the graph */
+            max-width: 600px; /* Set a maximum width if needed */
+            margin-top: 20px; /* Add margin to create space for the graph */
+            background-color: #ffffff; /* Set the background color for the graph */
+            /* Add any other styles for the graph */
+        }
+
     </style>
 </head>
 
@@ -88,9 +108,15 @@
     </section>
     <section id="section3" class="section">
         <img src="images/3.svg" alt="Section 3 Image">
+        <div class="graph"> <!-- Placeholder for the interactable graph -->
+            <!-- Add your interactable graph content here -->
+        </div>
         <img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToNextSection()">
     </section>
     <section id="section4" class="section">
+        <div class="graph"> <!-- Placeholder for the interactable graph -->
+            <!-- Add your interactable graph content here -->
+        </div>
         <img src="images/4.svg" alt="Section 4 Image">
         <img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToNextSection()">
     </section>
@@ -101,7 +127,7 @@
     <section id="section6" class="section">
         <img src="images/map0.png" alt="Section 6 Image">
     </section>
-    <script>
+   <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Smooth scrolling
             const sections = document.querySelectorAll('section');
