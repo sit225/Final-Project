@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paws and Ponder</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300&display=swap">
 
     <style>
         body {
@@ -13,6 +14,33 @@
             font-family: 'Arial', sans-serif;
         }
 
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background-color: #F8EFEB;
+            z-index: 1000;
+            cursor: pointer; /* Add cursor pointer for better user experience */
+            font-family: 'Kumbh Sans', sans-serif; /* Set the font to Kumbh Sans */
+            color: #1C3150; /* Set the text color to white */
+            font-size: 0.75em;
+            display: flex;
+            align-items: center; /* Center the content vertically */
+            justify-content: center;
+        }
+
+        .paw-print {
+            margin-right: 10px; /* Adjust margin between title and paw print */
+            font-size: 2em; /* Adjust the font size of the paw print */
+            color: #4D6489
+        }
+
+        h1 {
+            margin: 0; /* Remove default margin for better centering */
+        }
+        
         section {
             height: 100vh;
             display: flex;
@@ -46,6 +74,10 @@
 </head>
 
 <body>
+    <header onclick="scrollToTop()">
+        <h1>Paws and Ponder</h1>
+        <div class="paw-print">🐾</div>
+    </header>
     <section id="section1" class="section">
         <img src="images/1.svg" alt="Section 1 Image">
         <img class="nav-button" src="images/scroll.svg" alt="Next Section" onclick="scrollToNextSection()">
@@ -97,6 +129,12 @@
             if (nextSection) {
                 nextSection.scrollIntoView({ behavior: 'smooth' });
             }
+        }
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
     </script>
 </body>
