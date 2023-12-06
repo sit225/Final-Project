@@ -1,6 +1,6 @@
 :root {
   --color-primary: #1C3150; /* brand color */
-  --grid-maxWidth: 120rem; /* max container width 1080px */
+  --grid-maxWidth: 100rem; /* max container width 1080px */
   --font-family-sans: 'Kumbh Sans', sans-serif;
   --font-size: 1.6rem;
   --font-color: #1C3150;
